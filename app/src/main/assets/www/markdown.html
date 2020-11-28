@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>测试使用markdown</title>
+    <script type="text/javascript" src="showdown-master/dist/showdown.min.js"></script>
+    <style>
+        blockquote {
+            border-left:#eee solid 5px;
+            padding-left:20px;
+        }
+
+         ul li {
+             line-height: 20px;
+         }
+
+         code {
+             color:#D34B62;
+             background: #F6F6F6;
+         }
+
+    </style>
+</head>
+
+<body>
+
+<div>
+    <div id="result" style="height:100%;width:100%;"></div>
+</div>
+
+<script type="text/javascript">
+        var text = window.android.getText();
+        var converter = new showdown.Converter();
+        var html = converter.makeHtml(text);
+        document.getElementById("result").innerHTML = html;
+
+        function jsMethod(t){
+            return converter.makeHtml(t);
+        }
+</script>
+</body>
+</html>

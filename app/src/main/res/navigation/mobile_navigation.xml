@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_file">
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.android.markdowndemo.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.android.markdowndemo.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_file"
+        android:name="com.android.markdowndemo.ui.file.fileFragment"
+        android:label="@string/menu_file"
+        tools:layout="@layout/fragment_file_list">
+        <action
+            android:id="@+id/action_nav_file_to_editFragment"
+            app:destination="@id/editFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.android.markdowndemo.ui.edit.EditFragment"
+        android:label="编辑"
+        tools:layout="@layout/fragment_edit">
+        <action
+            android:id="@+id/action_editFragment_to_nav_file"
+            app:destination="@id/nav_file" />
+        <action
+            android:id="@+id/action_editFragment_to_htmlFragment"
+            app:destination="@id/htmlFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/htmlFragment"
+        android:name="com.android.markdowndemo.ui.html.HtmlFragment"
+        android:label="预览"
+        tools:layout="@layout/fragment_html">
+        <action
+            android:id="@+id/action_htmlFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_grammar"
+        android:name="com.android.markdowndemo.ui.grammar.GrammarFragment"
+        android:label="语法"
+        tools:layout="@layout/fragment_grammar" />
+</navigation>
